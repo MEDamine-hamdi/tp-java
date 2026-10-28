@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout Produit</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f6fa; padding: 40px; }
+        .card { max-width: 500px; margin: auto; background: white; padding: 24px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+        h2 { margin-top: 0; }
+        label { display: block; margin-top: 16px; font-weight: bold; }
+        input { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { margin-top: 20px; padding: 10px 20px; background: #1976d2; color: white; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Ajout Produit</h2>
+        <form th:action="@{/save}" th:object="${ProductForm}" method="post">
+            <label>Name</label>
+            <input type="text" th:field="*{name}" placeholder="name"/>
+
+            <label>Price</label>
+            <input type="number" step="0.01" th:field="*{price}" placeholder="price"/>
+
+            <label>Description</label>
+            <input type="text" th:field="*{description}" placeholder="description"/>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
